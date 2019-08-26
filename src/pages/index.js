@@ -1,15 +1,13 @@
 import React from "react"
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 import bg from "../../static/bg.jpg"
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap');
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
+const GlobalContainer = styled.div`
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap');
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
 `
 
 const StyledHeader = styled.div`
@@ -162,8 +160,7 @@ const StyledContent = styled.div`
 `
 
 const IndexPage = () => (
-  <div>
-  <GlobalStyle/>
+  <GlobalContainer>
   <StyledHeader>
     <header>
       <StyledNav>
@@ -192,7 +189,7 @@ const IndexPage = () => (
   <StyledContent>
     test
   </StyledContent>
-  </div>
+  </GlobalContainer>
 )
 
 
