@@ -235,18 +235,20 @@ const StyledContact = styled.div`
 class IndexPage extends React.Component {
   static defaultProps = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 51.66361,
+      lng: 16.0845
     },
     zoom: 11
   };
   componentDidMount() {
-    new Flickity( '.gallery', {
-      cellSelector: 'div',
-      prevNextButtons: false,
-      adaptiveHeight: true,
-      setGallerySize: true
-    });
+    if (typeof window !== undefined) {
+      new Flickity( '.gallery', {
+        cellSelector: 'div',
+        prevNextButtons: false,
+        adaptiveHeight: true,
+        setGallerySize: true
+      });
+    }
   }
   render () {
     return (
