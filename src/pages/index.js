@@ -4,9 +4,8 @@ import styled, {createGlobalStyle} from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faNetworkWired, faProjectDiagram, faServer, faEthernet } from '@fortawesome/free-solid-svg-icons'
 import bg from "../../static/bg.jpg";
-import Flickity from 'flickity';
-import 'flickity/dist/flickity.min.css';
 import GoogleMapReact from 'google-map-react';
+import Carousel from 'nuka-carousel';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -240,16 +239,6 @@ class IndexPage extends React.Component {
     },
     zoom: 11
   };
-  componentDidMount() {
-    if (typeof window !== undefined) {
-      new Flickity( '.gallery', {
-        cellSelector: 'div',
-        prevNextButtons: false,
-        adaptiveHeight: true,
-        setGallerySize: true
-      });
-    }
-  }
   render () {
     return (
       <GlobalContainer>
@@ -308,7 +297,7 @@ class IndexPage extends React.Component {
           </StyledServices>
           <StyledClients>
             <h2>Nasi klienci</h2>
-            <div className="gallery">
+            <Carousel withoutControls="true">
               <div>
                 <p>"Nunc faucibus a pellentesque sit. Dignissim enim sit amet venenatis urna cursus eget nunc. A pellentesque sit amet porttitor eget dolor morbi non. Adipiscing tristique risus nec feugiat in fermentum posuere urna nec. Sed enim ut sem viverra aliquet."
                 <span>~ John Doe</span>
@@ -324,7 +313,7 @@ class IndexPage extends React.Component {
                 <span>~ John Doe</span>
                 </p>
               </div>
-            </div>
+            </Carousel>
           </StyledClients>
           <StyledContact>
             <GoogleMapReact
