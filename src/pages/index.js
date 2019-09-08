@@ -399,7 +399,7 @@ class IndexPage extends React.Component {
               </div>
               <div className="container">
                 <form name="contact" method="post" data-netlify="true" action="/">
-                  <div className="form-container">
+                  <p className="form-container">
                     <label>
                       Imię
                       <input type="text" name="name" id="name" />
@@ -408,7 +408,7 @@ class IndexPage extends React.Component {
                       Adres email
                       <input type="email" name="email" id="email" />
                     </label>
-                  </div>
+                  </p>
                   <label>
                     Temat
                     <input type="text" name="subject" id="subject" />
