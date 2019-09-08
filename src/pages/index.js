@@ -4,8 +4,8 @@ import styled, {createGlobalStyle} from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faNetworkWired, faProjectDiagram, faServer, faEthernet } from '@fortawesome/free-solid-svg-icons'
 import bg from "../../static/bg.jpg";
-import GoogleMapReact from 'google-map-react';
 import Carousel from 'nuka-carousel';
+import { Map, TileLayer, Circle } from 'react-leaflet'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -16,8 +16,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const GlobalContainer = styled.div`
+  @import url('//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css');
   @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap');
   font-family: 'Montserrat', sans-serif;
+  * {
+    outline: none;
+  }
 `
 
 const StyledHeader = styled.div`
@@ -204,13 +208,8 @@ const StyledServices = styled.div`
 `
 
 const StyledClients = styled.div`
-  margin: 80px 80px;
-  div {
-    margin-top: 20px;
-    width: 100%;
-  }
+  margin: 80px 0;
   h2 {
-    width: 100%;
     font-weight: 800;
     text-align: left;
     box-sizing: border-box
@@ -229,17 +228,90 @@ const StyledClients = styled.div`
 const StyledContact = styled.div`
   width: 100%;
   height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  .container {
+    padding: 20px;
+    width: 50%;
+    height: 500px;
+  }
+  .leaflet-container {
+    border-radius: 4%;
+    overflow: hidden;
+    height: 100%;
+  }
+  .leaflet-tile {
+    filter: brightness(1);
+  }
+  form {
+    height: 500px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    .form-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: row;
+    }
+    label {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: column;
+      width: 100%;
+      margin-right: 5px;
+      margin-bottom: 20px;
+      &:nth-of-type(2) {
+        margin-right: 0;
+      }
+      input, textarea {
+        border: 2px solid #242424;
+        border-radius: 22px;
+        padding: 10px 14px;
+        box-sizing: border-box;
+        margin-left: -16px;
+        margin-top: 10px;
+        width: 100%;
+      }
+      textarea {
+        resize: none;
+        height: 200px;
+      }
+    }
+    button {
+      margin-top: 20px;
+      display: inline-block;
+      background: #0460FF;
+      color: #fff;
+      padding: 14px 16px;
+      font-weight: 700;
+      font-size: 15px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      border: 2px solid transparent;
+      box-sizing: border-box;
+      transition: 200ms ease;
+      margin-left: -15px;
+      &:active, &:focus, &:hover {
+        background: #FFF;
+        color: #333;
+        border: 2px solid #242424;
+        box-sizing: border-box;
+        transition: 200ms ease;
+      }
+    }
+  }
 `
 
 class IndexPage extends React.Component {
-  static defaultProps = {
-    center: {
-      lat: 51.66361,
-      lng: 16.0845
-    },
-    zoom: 11
-  };
   render () {
+  const position = [51.66, 16.08]
     return (
       <GlobalContainer>
         <GlobalStyle/>
@@ -297,7 +369,7 @@ class IndexPage extends React.Component {
           </StyledServices>
           <StyledClients>
             <h2>Nasi klienci</h2>
-            <Carousel withoutControls="true">
+            <Carousel withoutControls={true} autoplay={true}>
               <div>
                 <p>"Nunc faucibus a pellentesque sit. Dignissim enim sit amet venenatis urna cursus eget nunc. A pellentesque sit amet porttitor eget dolor morbi non. Adipiscing tristique risus nec feugiat in fermentum posuere urna nec. Sed enim ut sem viverra aliquet."
                 <span>~ John Doe</span>
@@ -316,11 +388,37 @@ class IndexPage extends React.Component {
             </Carousel>
           </StyledClients>
           <StyledContact>
-            <GoogleMapReact
-              bootstrapURLKeys={{ key: 'AIzaSyDdYrvzSt_ErHqUjV_gQGss7E0Tg5q3JDw'}}
-              defaultCenter={this.props.center}
-              defaultZoom={this.props.zoom}
-            ></GoogleMapReact>
+              <div className="container">
+                <Map center={position} zoom={11}>
+                  <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  <Circle center={position} radius={7000} fillColor="blue"/>
+                </Map>
+              </div>
+              <div className="container">
+                <form method="post" action="#">
+                  <div className="form-container">
+                    <label>
+                      Imię
+                      <input type="text" name="name" id="name" />
+                    </label>
+                    <label>
+                      Adres email
+                      <input type="email" name="email" id="email" />
+                    </label>
+                  </div>
+                  <label>
+                    Temat
+                    <input type="text" name="subject" id="subject" />
+                  </label>
+                  <label>
+                    Wiadomość
+                    <textarea name="message" id="message" rows="5" />
+                  </label>
+                  <button type="submit">Wyślij wiadomość</button>
+                </form>
+              </div>
           </StyledContact>
         </StyledContent>
 
