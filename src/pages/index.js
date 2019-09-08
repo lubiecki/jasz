@@ -425,6 +425,8 @@ class IndexPage extends React.Component {
 
       </GlobalContainer>
     )
+    } else {
+      return (<div>loading...</div>)
     }
   }
 
