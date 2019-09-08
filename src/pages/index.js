@@ -398,7 +398,7 @@ class IndexPage extends React.Component {
                     </Map>
               </div>
               <div className="container">
-                <form method="post" action="#">
+                <form method="post" action="#" netlify>
                   <div className="form-container">
                     <label>
                       Imię
