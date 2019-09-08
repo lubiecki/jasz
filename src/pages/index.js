@@ -312,6 +312,7 @@ const StyledContact = styled.div`
 class IndexPage extends React.Component {
   render () {
   const position = [51.66, 16.08]
+    if (typeof window !== 'undefined') {
     return (
       <GlobalContainer>
         <GlobalStyle/>
@@ -389,12 +390,12 @@ class IndexPage extends React.Component {
           </StyledClients>
           <StyledContact>
               <div className="container">
-                <Map center={position} zoom={11}>
-                  <TileLayer
+                    <Map center={position} zoom={11}>
+                    <TileLayer
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-                  <Circle center={position} radius={7000} fillColor="blue"/>
-                </Map>
+                    />
+                    <Circle center={position} radius={7000} fillColor="blue"/>
+                    </Map>
               </div>
               <div className="container">
                 <form method="post" action="#">
@@ -424,6 +425,7 @@ class IndexPage extends React.Component {
 
       </GlobalContainer>
     )
+    }
   }
 
 }
