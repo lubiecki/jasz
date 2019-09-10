@@ -1,0 +1,51 @@
+import React from "react"
+import styled from "styled-components";
+import Carousel from "nuka-carousel"
+
+const StyledClients = styled.div`
+  margin: 80px 0;
+  h2 {
+    font-weight: 800;
+    text-align: left;
+    box-sizing: border-box
+  }
+  p {
+    font-size: 16px;
+  }
+  span {
+    font-size: 18px;
+    width: 100%;
+    text-align: right;
+    display: block;
+  }
+`
+
+
+class Clients extends React.Component {
+  render() {
+    return (
+      <StyledClients>
+        <h2>Nasi klienci</h2>
+        <Carousel withoutControls={true} autoplay={true}>
+          <div>
+            <p>"Nunc faucibus a pellentesque sit. Dignissim enim sit amet venenatis urna cursus eget nunc. A pellentesque sit amet porttitor eget dolor morbi non. Adipiscing tristique risus nec feugiat in fermentum posuere urna nec. Sed enim ut sem viverra aliquet."
+              <span>~ John Doe</span>
+            </p>
+          </div>
+          <div>
+            <p>"Nunc faucibus a pellentesque sit. Dignissim enim sit amet venenatis urna cursus eget nunc. A pellentesque sit amet porttitor eget dolor morbi non. Adipiscing tristique risus nec feugiat in fermentum posuere urna nec. Sed enim ut sem viverra aliquet."
+              <span>~ John Doe</span>
+            </p>
+          </div>
+          <div>
+            <p>"Nunc faucibus a pellentesque sit. Dignissim enim sit amet venenatis urna cursus eget nunc. A pellentesque sit amet porttitor eget dolor morbi non. Adipiscing tristique risus nec feugiat in fermentum posuere urna nec. Sed enim ut sem viverra aliquet."
+              <span>~ John Doe</span>
+            </p>
+          </div>
+        </Carousel>
+      </StyledClients>
+    )
+  }
+}
+
+export default Clients
