@@ -2,6 +2,8 @@ import React from "react"
 import styled from "styled-components";
 import bg from "../../static/bg.jpg"
 
+import Nav from "./Nav"
+
 const StyledHeader = styled.div`
   width: 100vw;
   max-width: 100%;
@@ -11,82 +13,20 @@ const StyledHeader = styled.div`
   color: #fff;
   box-sizing: border-box;
   padding: 40px 320px 0 320px;
-  ul {
-    width: 35%;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    font-size: 14px;
-    font-weight: 500;
-    a {
-      color: inherit;
-      text-decoration: none;
-      position: relative;
-      padding-bottom: 8px;
-      &::after {
-        content: '';
-        width: 0;
-        height: 2px;
-        position: absolute;
-        background: #FFF;
-        bottom: 0;
-        left: -20%;
-        transition: 200ms ease;
-      }
-      &:hover, &:focus {
-        &:after {
-          width: 140%;
-          transition: 200ms ease;
-          }
-        }
-    }
+
+  @media (min-width: 992px) and (max-width: 1449px) {
+    padding: 20px 140px 0 140px;
+  }
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    padding: 20px 60px 0 60px;
+  }
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    padding: 20px 50px 0 50px;
+  }
+  @media (max-width: 575.98px) {
+    padding: 20px 20px 0 20px;
   }
 `;
-const StyledLogo = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 44px;
-  font-weight: 900;
-  letter-spacing: -0.1em;
-  position: relative;
-  padding: 10px 16px 10px 10px;
-  overflow: hidden;
-  cursor: pointer;
-  &::after {
-    content: '';
-    height: 150%;
-    width: 150%;
-    background: #0460ff;
-    position: absolute;
-    top: -130%;
-    left: -130%;
-    z-index: 0;
-    transition: 200ms ease;
-    transform: rotate(45deg);
-  }
-  &:hover {
-    &::after {
-      top: -25%;
-      left: -25%;
-      transition: 200ms ease;
-      }
-  }
-  .text-container {
-    z-index: 10;
-  }
-`
-
-const StyledNav = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-`
 
 const StyledHeading = styled.div`
   height: calc(100vh - (94px * 2));
@@ -100,6 +40,7 @@ const StyledHeading = styled.div`
     font-weight: 800;
     font-size: 60px;
     margin-bottom: 20px;
+    line-height: 55px;
   }
   .sub {
     font-weight: 300;
@@ -144,6 +85,30 @@ const StyledHeading = styled.div`
       }
     }
   }
+  @media (min-width: 992px) and (max-width: 1449px) {
+    padding: 0 80px;
+  }
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    padding: 0 40px;
+  }
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    padding: 0 30px;
+  }
+  @media (max-width: 575.98px) {
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .main {
+      font-size: 40px;
+      line-height: 44px;
+    }
+    .sub {
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
 `
 
 class Header extends React.Component {
@@ -151,17 +116,7 @@ class Header extends React.Component {
     return (
     <StyledHeader>
       <header>
-        <StyledNav>
-          <StyledLogo>
-            <span className="text-container">JS</span>
-          </StyledLogo>
-          <ul>
-            <li><a href="#header">O nas</a></li>
-            <li><a href="#header">Usługi</a></li>
-            <li><a href="#header">Klienci</a></li>
-            <li><a href="#header">Kontakt</a></li>
-          </ul>
-        </StyledNav>
+        <Nav/>
         <StyledHeading>
           <div className="main">Lorem ipsum dolor sit amet.</div>
           <div className="sub">Viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor. Eget felis eget nunc

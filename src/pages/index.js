@@ -29,6 +29,22 @@ const StyledContent = styled.div`
   margin: 0 220px;
   padding: 100px 260px;
   text-align: center;
+  @media (min-width: 992px) and (max-width: 1449px) {
+    margin: 0 130px;
+    padding: 60px 20px;
+  }
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    margin: 0 60px;
+    padding: 60px 20px;
+  }
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    margin: 0 30px;
+    padding: 60px 20px;
+  }
+  @media (max-width: 575.98px) {
+    margin: 0 20px;
+    padding: 30px 20px;
+  }
 `
 
 class IndexPage extends React.Component {

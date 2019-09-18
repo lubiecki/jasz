@@ -10,6 +10,7 @@ const StyledContact = styled.div`
   align-items: center;
   flex-direction: row;
   .container {
+    box-sizing: border-box;
     padding: 20px;
     width: 50%;
     height: 500px;
@@ -22,6 +23,26 @@ const StyledContact = styled.div`
   .leaflet-tile {
     filter: brightness(1);
   }
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    width: calc(100% + 130px);
+    margin-left: -55px;
+  }
+  @media (max-width: 575.98px) {
+    flex-direction: column;
+    height: auto;
+    .container {
+    width: 100%;
+    padding: 10px;
+      input, textarea, button {
+        margin-left: 0;
+      }
+    &:nth-of-type(1) {
+    display: none;
+    }
+    }
+  }
+  
+  
   form {
     height: 500px;
     width: 100%;
@@ -83,6 +104,9 @@ const StyledContact = styled.div`
         transition: 200ms ease;
       }
     }
+  @media (max-width: 575.98px) {
+      
+  }
   }
 `
 
