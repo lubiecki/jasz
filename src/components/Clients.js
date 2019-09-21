@@ -24,7 +24,7 @@ const StyledClients = styled.div`
 class Clients extends React.Component {
   render() {
     return (
-      <StyledClients>
+      <StyledClients id="clients">
         <h2>Nasi klienci</h2>
         <Carousel withoutControls={true} autoplay={true}>
           <div>

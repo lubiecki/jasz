@@ -114,7 +114,7 @@ class Contact extends React.Component {
   render() {
     const position = [51.66, 16.08]
     return (
-      <StyledContact>
+      <StyledContact id="contact">
         <div className="container">
           <Map center={position} zoom={11}>
             <TileLayer
@@ -124,7 +124,7 @@ class Contact extends React.Component {
           </Map>
         </div>
         <div className="container">
-          <form name="contact" method="post" data-netlify="true" action="/">
+          <form name="contact" method="post" data-netlify="true" action="https://formspree.io/kontakt@lubiecki.pl">
             <p className="form-container">
               <label>
                 Imię
@@ -143,6 +143,7 @@ class Contact extends React.Component {
               Wiadomość
               <textarea name="message" id="message" rows="5" />
             </label>
+            <input type="hidden" name="_language" value="pl" />
             <button type="submit">Wyślij wiadomość</button>
           </form>
         </div>
