@@ -25,11 +25,11 @@ class Clients extends React.Component {
   render() {
     return (
       <StyledClients id="clients">
-        <h2>Nasi klienci</h2>
+        <h2>Zaufali już</h2>
         <Carousel withoutControls={true} autoplay={true}>
           <div>
-            <p>"Nunc faucibus a pellentesque sit. Dignissim enim sit amet venenatis urna cursus eget nunc. A pellentesque sit amet porttitor eget dolor morbi non. Adipiscing tristique risus nec feugiat in fermentum posuere urna nec. Sed enim ut sem viverra aliquet."
-              <span>~ John Doe</span>
+            <p>Wzorowa wpsółpraca w pełnym zakresie obsługi szkoły. Doradztwo i administracja na wysokim poziomie i zawsze zgodnie z oczekiwaniami. 
+              <span>~ Szkoła Podstawowa nr 2 Głogów</span>
             </p>
           </div>
           <div>

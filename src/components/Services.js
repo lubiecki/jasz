@@ -36,17 +36,17 @@ class Services extends React.Component {
       <StyledServices id="services">
         <div className="container">
           <FontAwesomeIcon icon={faNetworkWired} size="3x"  color="#333"/>
-          <h4>Nibh cras pulvinar</h4>
+          <h4>Sieci komputerowe</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</p>
         </div>
         <div className="container">
           <FontAwesomeIcon icon={faProjectDiagram} size="3x" color="#333"/>
-          <h4>Nibh cras pulvinar</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</p>
+          <h4>Obsługa informatyczna</h4>
+          <p>Usługi informatyczne na podstawie umowy skierowane do jednostek budżetowych, biur, sklepów, itp.</p>
         </div>
         <div className="container">
           <FontAwesomeIcon icon={faServer} size="3x" color="#333"/>
-          <h4>Nibh cras pulvinar</h4>
+          <h4>Administracja serwerów</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</p>
         </div>
         <div className="container">

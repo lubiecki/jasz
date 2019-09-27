@@ -118,10 +118,8 @@ class Header extends React.Component {
       <header>
         <Nav/>
         <StyledHeading>
-          <div className="main">Lorem ipsum dolor sit amet.</div>
-          <div className="sub">Viverra accumsan in nisl nisi scelerisque eu ultrices vitae auctor. Eget felis eget nunc
-            lobortis mattis aliquam faucibus. Semper auctor neque vitae tempus quam. Et pharetra
-            pharetra massa massa ultricies mi quis hendrerit dolor.
+          <div className="main">Administracja IT</div>
+          <div className="sub">Outsorcing IT to sposób na obniżenie kosztów w Twojej firmie. Główną ideą jest powierzenie pełnej administracji informatycznej zewnętrznej firmie. Pozwala to opłacać jedynie koszty wykonanej usługi.
           </div>
           <div className="btn">
             <span className="text-container">Dowiedz się więcej</span>
