@@ -1,8 +1,14 @@
 import React from "react"
 import styled from "styled-components";
 import bg from "../../static/bg.jpg"
+import { Link } from "gatsby";
 
 import Nav from "./Nav"
+
+if (typeof window !== "undefined") {
+  // eslint-disable-next-line global-require
+  require("smooth-scroll")('a[href*="#"]')
+}
 
 const StyledHeader = styled.div`
   width: 100vw;
@@ -57,6 +63,10 @@ const StyledHeading = styled.div`
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
     &::after {
       content: '';
       position: absolute;
@@ -122,7 +132,7 @@ class Header extends React.Component {
           <div className="sub">Outsorcing IT to sposób na obniżenie kosztów w Twojej firmie. Główną ideą jest powierzenie pełnej administracji informatycznej zewnętrznej firmie. Pozwala to opłacać jedynie koszty wykonanej usługi.
           </div>
           <div className="btn">
-            <span className="text-container">Dowiedz się więcej</span>
+            <span className="text-container"><Link to="/#about">Dowiedz się więcej</Link></span>
           </div>
         </StyledHeading>
       </header>

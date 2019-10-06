@@ -9,6 +9,17 @@ const StyledContact = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  position: relative;
+  color: #FFF;
+  padding: 50px 0;
+  .bg {
+    background: #222;
+    background-size: cover;
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
   .container {
     box-sizing: border-box;
     padding: 20px;
@@ -16,7 +27,7 @@ const StyledContact = styled.div`
     height: 500px;
   }
   .leaflet-container {
-    border-radius: 4%;
+    border-radius: 1%;
     overflow: hidden;
     height: 100%;
   }
@@ -69,11 +80,9 @@ const StyledContact = styled.div`
         margin-right: 0;
       }
       input, textarea {
-        border: 2px solid #242424;
-        border-radius: 22px;
+        border: none;
         padding: 10px 14px;
         box-sizing: border-box;
-        margin-left: -16px;
         margin-top: 10px;
         width: 100%;
       }
@@ -85,28 +94,52 @@ const StyledContact = styled.div`
     button {
       margin-top: 14px;
       display: inline-block;
-      background: #0460FF;
-      color: #fff;
+      background: #FFF;
+      color: #333;
       padding: 14px 16px;
       font-weight: 700;
       font-size: 15px;
       position: relative;
       cursor: pointer;
-      border: 2px solid transparent;
       box-sizing: border-box;
       transition: 200ms ease;
-      margin-left: -15px;
-      &:active, &:focus, &:hover {
-        background: #FFF;
-        color: #333;
-        border: 2px solid #242424;
-        box-sizing: border-box;
+      border: none;
+      .text-container {
+        z-index: 11;
+        position: relative;
+        color: #222;
         transition: 200ms ease;
       }
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: #0460FF;
+        z-index: 0;
+        transition: 200ms ease;
+      }
+      &:active, &:focus, &:hover {
+        background: #FFF;
+        box-sizing: border-box;
+        color: #FFF;
+        transition: 200ms ease;
+        .text-container {
+          color: #FFF;
+          transition: 200ms ease;
+        }
+        &::after {
+          width: 100%;
+          transition: 200ms ease;
+        }
+      }
     }
-  @media (max-width: 575.98px) {
-      
-  }
+    @media (max-width: 575.98px) {
+      margin-top: 50px;
+    }
+    }
   }
 `
 
@@ -115,6 +148,7 @@ class Contact extends React.Component {
     const position = [51.66, 16.08]
     return (
       <StyledContact id="contact">
+        <div className="bg"></div>
         <div className="container">
           <Map center={position} zoom={11}>
             <TileLayer
@@ -124,7 +158,7 @@ class Contact extends React.Component {
           </Map>
         </div>
         <div className="container">
-          <form name="contact" method="post" data-netlify="true" action="https://formspree.io/kontakt@lubiecki.pl">
+          <form name="contact" method="post" data-netlify="true" action="https://formspree.io/kontakt@jasz-it.pl">
             <p className="form-container">
               <label>
                 Imię
@@ -144,7 +178,9 @@ class Contact extends React.Component {
               <textarea name="message" id="message" rows="5" />
             </label>
             <input type="hidden" name="_language" value="pl" />
-            <button type="submit">Wyślij wiadomość</button>
+            <button type="submit">
+              <span className="text-container">Wyślij wiadomość</span>
+              </button>
           </form>
         </div>
       </StyledContact>

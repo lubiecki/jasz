@@ -28,18 +28,8 @@ class Clients extends React.Component {
         <h2>Zaufali już</h2>
         <Carousel withoutControls={true} autoplay={true}>
           <div>
-            <p>Wzorowa wpsółpraca w pełnym zakresie obsługi szkoły. Doradztwo i administracja na wysokim poziomie i zawsze zgodnie z oczekiwaniami. 
+            <p>Wzorowa współpraca w pełnym zakresie obsługi szkoły. Doradztwo i administracja na wysokim poziomie i zawsze zgodnie z oczekiwaniami.
               <span>~ Szkoła Podstawowa nr 2 Głogów</span>
-            </p>
-          </div>
-          <div>
-            <p>"Nunc faucibus a pellentesque sit. Dignissim enim sit amet venenatis urna cursus eget nunc. A pellentesque sit amet porttitor eget dolor morbi non. Adipiscing tristique risus nec feugiat in fermentum posuere urna nec. Sed enim ut sem viverra aliquet."
-              <span>~ John Doe</span>
-            </p>
-          </div>
-          <div>
-            <p>"Nunc faucibus a pellentesque sit. Dignissim enim sit amet venenatis urna cursus eget nunc. A pellentesque sit amet porttitor eget dolor morbi non. Adipiscing tristique risus nec feugiat in fermentum posuere urna nec. Sed enim ut sem viverra aliquet."
-              <span>~ John Doe</span>
             </p>
           </div>
         </Carousel>

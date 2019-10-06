@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components";
 
 const StyledFooter = styled.div`
-  background: #151515;
+  background: #111;
   display: flex;
   justify-content: center;
   align-items: center;
